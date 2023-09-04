@@ -7,18 +7,16 @@ function App() {
   const [term, setTerm] = useState("Football");
 
   useEffect(() => {
-    fetch(
-      `https://pixabay.com/api/?key=${process.env.PIXABAY_API}&q=${term}&image_type=photo`
-    )
+    fetch(`https://picsum.photos/v2/list?page=2&limit=100`)
       .then((res) => res.json())
       .then((data) => {
-        setImages(data.hits);
+        setImages(data);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="container mx-auto ">
+    <div className="mx-auto ">
       <div className="gird grid-cols-3 gap-4">
         {images.map((image) => {
           <ImageCard key={image.id} image={image} />;

@@ -1,9 +1,9 @@
 import React from "react";
 
-export const ImageCard = () => {
+export const ImageCard = ({ image }) => {
   return (
     <div className="max-w-sm shadow-lg rounded overflow-hidden p-3">
-      <img src="https://source.unsplash.com/random" className="w-full" />
+      <img src={image.download_url} className="w-full" />
       <div className="px-6 py-4">
         <div className="font-bold text-purple-500 text-xl mb-2">
           Photo by John Doe
