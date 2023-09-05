@@ -6,20 +6,20 @@ export const ImageCard = ({ image }) => {
       <img src={image.download_url} className="w-full" />
       <div className="px-6 py-4">
         <div className="font-bold text-purple-500 text-xl mb-2">
-          Photo by John Doe
+          Photo by {image.author}
         </div>
         <ul>
           <li>
             <strong>Views: </strong>
-            4000
+            {image.width}
           </li>
           <li>
             <strong>Downloads: </strong>
-            400
+            {image.height}
           </li>
           <li>
             <strong>Likes: </strong>
-            140
+            {image.id}
           </li>
         </ul>
       </div>

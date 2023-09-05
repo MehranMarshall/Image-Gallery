@@ -4,7 +4,6 @@ import "./assets/main.css";
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("");
 
   useEffect(() => {
     fetch(`https://picsum.photos/v2/list?page=2&limit=100`)
@@ -16,12 +15,18 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="mx-auto">
-      <div className="gird grid-cols-3 gap-4">
-        {images.map((image) => {
-          return <ImageCard image={image} />;
-        })}
-      </div>
+    <div className="container w-full mx-auto min-h-full mt-2">
+      {isLoading ? (
+        <h1 className="text-6xl flex justify-center items-center ">
+          ... IS LOADING
+        </h1>
+      ) : (
+        <div className="grid grid-cols-3 gap-4">
+          {images.map((image) => {
+            return <ImageCard image={image} key={image.id} />;
+          })}
+        </div>
+      )}
     </div>
   );
 }
